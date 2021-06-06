@@ -12,6 +12,7 @@ pub struct Database{
 #[derive(Debug, Deserialize)]
 pub struct Settings{
     pub db: Database,
+    pub hash_salt: String,
 }
 
 impl Settings{
@@ -20,7 +21,8 @@ impl Settings{
         Settings{
             db: Database{
                 url:env::var("DATABASE_URL").unwrap_or("".to_string()),
-            }
+            },
+            hash_salt: env::var("HASH_SALT").unwrap_or("myhashsalt".to_string())
         }
     }
 }

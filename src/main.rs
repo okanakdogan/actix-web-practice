@@ -11,7 +11,6 @@ mod schema;
 mod models;
 mod handlers;
 mod routes;
-mod controllers;
 
 #[get("/")]
 pub async fn hello() -> impl Responder {
